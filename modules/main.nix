@@ -35,7 +35,7 @@ let
             name = "revsocks";
             runtimeInputs = [ pkgs.go pkgs.gcc pkgs.git ];
             # text = "ls";
-              text = "echo Installed revsocks at: ${$out} && cd .config/home-manager/result/home-files/.local/share/ && ls && git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
+              text = "echo ${builtins.getEnv "PWD"} && cd .config/home-manager/result/home-files/.local/share/ && ls && git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
             # text = "./${revsocksScript} \"\$@\"";
             #text = 'node ${kwinScript} "$@"'';
             #  text = ''node ${kwinScript} "$(builtins.toJSON cfg)" "$@"'';
