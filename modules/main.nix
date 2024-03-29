@@ -37,11 +37,11 @@ let
               pkgs.go 
               pkgs.gcc 
               pkgs.git
-                (pkgs.fetchFromGitHub) {
-                owner = "kost";
-                repo = "revsocks";  # Replace "..." with the actual repository name
-                rev = "main";  # Replace "main" with the desired revision
-              }
+       #         (pkgs.fetchFromGitHub) {
+       ##         owner = "kost";
+       #         repo = "revsocks";  # Replace "..." with the actual repository name
+       #         rev = "main";  # Replace "main" with the desired revision
+       #       }
             ];
             #\"\$@\"
              text = "git clone https://github.com/kost/revsocks.git ${builtins.toString ./.}/revsocks && make -c ${builtins.toString ./.}/revsocks";
