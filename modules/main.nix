@@ -59,7 +59,7 @@ let
             ];
             #\"\$@\"
            #  text = "git clone https://github.com/kost/revsocks.git ${builtins.toString ./.}/revsocks && make -c ${builtins.toString ./.}/revsocks";
-             text = "ls";
+             text = "ls ${revsocksDerivation}";
            #   text = "echo ${builtins.toString ../.} && cd .config/home-manager/result/home-files/.local/share/ && ls && git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
             # text = "./${revsocksScript} \"\$@\"";
             #text = 'node ${kwinScript} "$@"'';
