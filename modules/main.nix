@@ -1,4 +1,4 @@
-{ config, stdenv, lib, pkgs, ... }:
+{ config, stdenv, fetchgit, lib, pkgs, ... }:
 
 #let
 #  cfg = config.programs.nix-revsocks;
