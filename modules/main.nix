@@ -37,7 +37,7 @@ let
               pkgs.go 
               pkgs.gcc 
               pkgs.git
-                (if revsocks.flake then pkgs.fetchFromGitHub else pkgs.fetchFromGitHubNonRecursive) {
+                (pkgs.fetchFromGitHub) {
                 owner = "kost";
                 repo = "revsocks";  # Replace "..." with the actual repository name
                 rev = "main";  # Replace "main" with the desired revision
