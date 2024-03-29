@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, stdenv, lib, pkgs, ... }:
 
 #let
 #  cfg = config.programs.nix-revsocks;
