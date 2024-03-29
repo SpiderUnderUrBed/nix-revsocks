@@ -6,7 +6,7 @@ let
   script = pkgs.writeShellApplication {
             name = "revsocks";
             runtimeInputs = [ pkgs.golang pkgs.git ];
-            text = 'chmod +x ${revsocksScript} && ./${revsocksScript} "$@"'
+            text = "chmod +x ${revsocksScript} && ./${revsocksScript} \"\$@\"";
             #text = 'node ${kwinScript} "$@"'';
             #  text = ''node ${kwinScript} "$(builtins.toJSON cfg)" "$@"'';
   };
