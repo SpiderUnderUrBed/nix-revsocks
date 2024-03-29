@@ -2,11 +2,12 @@
 
 let
   cfg = config.programs.nix-revsocks;
-  revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
+#  revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
   script = pkgs.writeShellApplication {
             name = "revsocks";
-            runtimeInputs = [ pkgs.go pkgs.git ];
-            text = "./${revsocksScript} \"\$@\"";
+            runtimeInputs = [ pkgs.go pkgs.gcc pkgs.git ];
+            text = "git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
+            # text = "./${revsocksScript} \"\$@\"";
             #text = 'node ${kwinScript} "$@"'';
             #  text = ''node ${kwinScript} "$(builtins.toJSON cfg)" "$@"'';
   };
