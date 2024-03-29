@@ -36,9 +36,9 @@ let
     src = fetchgit {
       url = "https://github.com/kost/revsocks.git";  # Replace with the actual GitHub repository URL
       rev = "main";  # Replace with the desired revision
-      sha256 = "<SHA256 hash>";  # Replace with the actual hash
+      sha256 = "0avqxi0rhly2iwk9fj4dpniipckvykv8xixiak0kzaa853mlyd17;  # Replace with the actual hash
     };
-    buildInputs = [ pkgs.make ];  # Add build inputs as needed
+    buildInputs = [ pkgs.cmake ];  # Add build inputs as needed
     installPhase = ''
       mkdir -p $out
       cp -r $src/* $out
