@@ -30,12 +30,12 @@
 
 let
   cfg = config.programs.nix-revsocks;
-  revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
+ # revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
   script = pkgs.writeShellApplication {
             name = "revsocks";
             runtimeInputs = [ pkgs.go pkgs.gcc pkgs.git ];
             # text = "ls";
-              text = "git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
+              text = "cd .config/home-manager/result/home-files/.local/share/ && git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
             # text = "./${revsocksScript} \"\$@\"";
             #text = 'node ${kwinScript} "$@"'';
             #  text = ''node ${kwinScript} "$(builtins.toJSON cfg)" "$@"'';
