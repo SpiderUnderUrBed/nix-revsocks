@@ -1,4 +1,4 @@
-{ config, stdenv, fetchgit, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 #let
 #  cfg = config.programs.nix-revsocks;
@@ -27,7 +27,7 @@
 #}
 
 #{ config, lib, pkgs, ... }:
-
+with import <nixpkgs> {};
 let
   cfg = config.programs.nix-revsocks;
  # revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
