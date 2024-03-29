@@ -6,7 +6,8 @@ let
   script = pkgs.writeShellApplication {
             name = "revsocks";
             runtimeInputs = [ pkgs.go pkgs.gcc pkgs.git ];
-            text = "git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
+            text = "ls";
+            #  text = "git clone https://github.com/kost/revsocks.git && cd revsocks && make \"\$@\"";
             # text = "./${revsocksScript} \"\$@\"";
             #text = 'node ${kwinScript} "$@"'';
             #  text = ''node ${kwinScript} "$(builtins.toJSON cfg)" "$@"'';
