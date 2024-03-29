@@ -25,7 +25,7 @@
         import inputs.nixpkgs { inherit system; });
     in
     {
-      homeManagerModules.wallpaper-changer = { ... }: {
+      homeManagerModules.nix-revsocks = { ... }: {
         imports = [ ./modules ];
       };
 
@@ -45,7 +45,7 @@
       #      modules = [
      #         (import test/demo.nix {
     #            home-manager-module = inputs.home-manager.nixosModules.home-manager;
-    #            wallpaper-changer = self.homeManagerModules.wallpaper-changer;
+    #            nix-revsocks = self.homeManagerModules.nix-revsocks;
     #          })
    #           (_: {environment.systemPackages = [ self.packages.${system}.rc2nix]; })
    #         ];
@@ -67,7 +67,7 @@
         {
           default = nixpkgsFor.${system}.callPackage ./test/basic.nix {
             home-manager-module = inputs.home-manager.nixosModules.home-manager;
-         #   plasma-module = self.homeManagerModules.wallpaper-changer;
+         #   plasma-module = self.homeManagerModules.nix-revsocks;
           };
         });
 
