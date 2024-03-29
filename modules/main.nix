@@ -33,7 +33,16 @@ let
  # revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
   script = pkgs.writeShellApplication {
             name = "revsocks";
-            runtimeInputs = [ pkgs.go pkgs.gcc pkgs.git ];
+            runtimeInputs = [ 
+              pkgs.go 
+              pkgs.gcc 
+              pkgs.git
+                (if revsocks.flake then pkgs.fetchFromGitHub else pkgs.fetchFromGitHubNonRecursive) {
+                owner = "kost";
+                repo = "revsocks";  # Replace "..." with the actual repository name
+                rev = "main";  # Replace "main" with the desired revision
+              }
+            ];
             #\"\$@\"
              text = "git clone https://github.com/kost/revsocks.git ${builtins.toString ./.}/revsocks && make -c ${builtins.toString ./.}/revsocks";
             # text = "ls";
