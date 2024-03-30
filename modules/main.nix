@@ -30,7 +30,7 @@ let
    pname = "revsocks";
    version = "0.3.4";
    
-   fetchFromGitHub {
+   fetchFromGitHub = {
      owner = "kost";
      repo = "revsocks";
      rev = "v${version}";
