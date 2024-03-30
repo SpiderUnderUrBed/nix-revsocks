@@ -42,10 +42,14 @@ if (args.length > 0) {
 }
   
 exec(BIN, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error executing ${BIN}: ${error.message}`);
+    if (error) {
+        if (stderr.includes("You must specify a listen port or a connect address")) {
+            console.error("Error: You must specify a listen port or a connect address");
+        } else {
+            console.error(`Error executing ${BIN}: ${error.message}`);
+        }
         return;
-      }
-      console.log(`Output:\n${stdout}`);
-      console.error(`Error:\n${stderr}`);
+    }
+    console.log(`Output:\n${stdout}`);
+    console.error(`Error:\n${stderr}`);
 });
