@@ -9,7 +9,7 @@ let
    pname = "revsocks";
    version = "2.8";
 
-vendorHash = "sha256-ciBIR+a1oaYH+H1PcC8cD8ncfJczk1IiJ8iYNM+R6aA=";
+vendorHash = "sha256-0PT58WgoA4SHrZxWeIVOc140fhvwSpWSE1B4nhi57Hw=";
 
 src = fetchFromGitHub {
      owner = "kost";
