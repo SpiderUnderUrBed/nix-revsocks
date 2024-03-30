@@ -1,26 +1,5 @@
 { config, lib, pkgs, ... }:
 
-#pet = buildGoModule rec {
-#  pname = "pet";
-#  version = "0.3.4";
-
-#  src = fetchFromGitHub {
-#    owner = "knqyf263";
-#    repo = "pet";
-#    rev = "v${version}";
-#    hash = "sha256-Gjw1dRrgM8D3G7v6WIM2+50r4HmTXvx0Xxme2fH9TlQ=";
- # };
-
-#  vendorHash = "sha256-ciBIR+a1oaYH+H1PcC8cD8ncfJczk1IiJ8iYNM+R6aA=";
-
- # meta = with lib; {
-##    description = "Simple command-line snippet manager, written in Go";
- #   homepage = "https://github.com/knqyf263/pet";
- #   license = licenses.mit;
-#    maintainers = with maintainers; [ kalbasit ];
-#  };
-#}
-
 with import <nixpkgs> {};
 let
   cfg = config.programs.nix-revsocks;
@@ -28,9 +7,11 @@ let
 # mkDerivation
   revsocksGo = buildGoModule rec {
    pname = "revsocks";
-   version = "0.3.4";
- vendorHash = "sha256-ciBIR+a1oaYH+H1PcC8cD8ncfJczk1IiJ8iYNM+R6aA=";
-   src = fetchFromGitHub {
+   version = "2.8";
+
+vendorHash = "sha256-ciBIR+a1oaYH+H1PcC8cD8ncfJczk1IiJ8iYNM+R6aA=";
+
+src = fetchFromGitHub {
      owner = "kost";
      repo = "revsocks";
      rev = "v${version}";
@@ -53,8 +34,8 @@ let
 #      mkdir -p $out
 #      cp -r $src/* $out
 #      make -C $out  # Run make within the source directory
-#    '';
-#  };
+ #   '';
+ # };
   script = pkgs.writeShellApplication {
             name = "revsocks";
             runtimeInputs = [ 
