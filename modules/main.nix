@@ -48,7 +48,7 @@ src = fetchFromGitHub {
             ];
 #            #text = "ls ${revsocksDerivation}";
             # text = "ls ${revsocksDerivation}"
-             text = "node ${processScript} "${(builtins.toJSON cfg)}" ${revsocksGo}/bin/revsocks";
+             text = "node ${processScript} '${(builtins.toJSON cfg)}' ${revsocksGo}/bin/revsocks";
   };
 in
 {
