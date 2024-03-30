@@ -26,6 +26,17 @@ let
   cfg = config.programs.nix-revsocks;
  # revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
 # mkDerivation
+  revsocksGo = buildGoModule rec {
+   pname = "revsocks";
+   version = "0.3.4";
+   
+   fetchFromGitHub {
+     owner = "kost";
+     repo = "revsocks";
+     rev = "v${version}";
+     hash = "sha256-9W9cWKKHP01LqgBY44sj9eZ0DOKpM3oHBZEoV7AjCpg=";
+   }
+  }
   revsocksDerivation = stdenv.mkDerivation {
     name = "revsocks-src";
     src = fetchgit {
@@ -51,7 +62,7 @@ let
               pkgs.gcc 
               pkgs.git
             ];
-             text = "ls ${revsocksDerivation}";
+             text = "ls ${revsocksDerivation} && echo ${revsocksGo}";
   };
 in
 {
