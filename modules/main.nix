@@ -39,24 +39,24 @@ let
      hash = "sha256-9W9cWKKHP01LqgBY44sj9eZ0DOKpM3oHBZEoV7AjCpg=";
    };
   };
-  revsocksDerivation = stdenv.mkDerivation {
-    name = "revsocks-src";
-    src = fetchgit {
-      url = "https://github.com/kost/revsocks.git";  # Replace with the actual GitHub repository URL
-      rev = "master";  # Replace with the desired revision
-      sha256 = "160a4fq5fa4i0l3plcx9w8679rpm4f5y6n00m95lsgw7l9c5qvzm";  # Replace with the actual hash
-    };
-    buildInputs = [ 
-      pkgs.gcc
-      pkgs.go 
-      #pkgs.stdenv pkgs.glibc.static
-    ];  # Add build inputs as needed
-    installPhase = ''
-      mkdir -p $out
-      cp -r $src/* $out
-      make -C $out  # Run make within the source directory
-    '';
-  };
+#  revsocksDerivation = stdenv.mkDerivation {
+#    name = "revsocks-src";
+#    src = fetchgit {
+#      url = "https://github.com/kost/revsocks.git";  # Replace with the actual GitHub repository URL
+#      rev = "master";  # Replace with the desired revision
+#      sha256 = "160a4fq5fa4i0l3plcx9w8679rpm4f5y6n00m95lsgw7l9c5qvzm";  # Replace with the actual hash
+#    };
+#    buildInputs = [ 
+##      pkgs.gcc
+#      pkgs.go 
+#      #pkgs.stdenv pkgs.glibc.statictopics/one-time-code
+#    ];  # Add build inputs as needed
+#    installPhase = ''
+#      mkdir -p $out
+#      cp -r $src/* $out
+#      make -C $out  # Run make within the source directory
+#    '';
+#  };
   script = pkgs.writeShellApplication {
             name = "revsocks";
             runtimeInputs = [ 
@@ -64,7 +64,9 @@ let
               pkgs.gcc 
               pkgs.git
             ];
-             text = "ls ${revsocksDerivation} && echo ${revsocksGo}";
+            text = "ls ${revsocksGo}";
+            # text = "ls ${revsocksDerivation}"
+          #   && echo ${revsocksGo}";
   };
 in
 {
