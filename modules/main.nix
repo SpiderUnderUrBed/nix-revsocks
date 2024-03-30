@@ -29,7 +29,9 @@ let
   revsocksGo = buildGoModule rec {
    pname = "revsocks";
    version = "0.3.4";
-   
+
+   vendorHash = "sha256-ciBIR+a1oaYH+H1PcC8cD8ncfJczk1IiJ8iYNM+R6aA=";
+
    src = fetchFromGitHub {
      owner = "kost";
      repo = "revsocks";
