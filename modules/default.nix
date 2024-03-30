@@ -1,10 +1,11 @@
 { lib, ... }:
 
 let
-  # Define the allowed options for instances
   mapAttrs = lib.mapAttrs;
+
+  # Define the allowed options for instances
   allowedInstanceOptions = {
-    option1 = "test";
+    option1 = "";
     option2 = "";
     # Add more allowed options as needed
   };
@@ -25,7 +26,7 @@ in
       Whether or not to enable revsocks
     '';
     instances = lib.mkOption {
-      default = [];
+      default = {};
       type = lib.types.attrsOf lib.types.attrsOf lib.types.string;
       description = ''
         Instances configuration for nix-revsocks
