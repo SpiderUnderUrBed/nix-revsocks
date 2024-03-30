@@ -39,13 +39,13 @@ src = fetchFromGitHub {
   script = pkgs.writeShellApplication {
             name = "revsocks";
             runtimeInputs = [ 
-              pkgs.go 
-              pkgs.gcc 
-              pkgs.git
+   #           pkgs.go 
+   #           pkgs.gcc 
+   #           pkgs.git
             ];
-#            text = "ls ${revsocksDerivation}";
+#            #text = "ls ${revsocksDerivation}";
             # text = "ls ${revsocksDerivation}"
-             text = "echo ${revsocksGo}";
+             text = "./${revsocksGo}";
   };
 in
 {
