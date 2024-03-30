@@ -4,25 +4,40 @@
 const args = process.argv.slice(2);
 const { exec } = require('child_process');
 
+let config, BIN;
+//let BIN = null;
 // Check if any arguments are provided
 if (args.length > 0) {
-//  console.log("Parameters received:");
+  for (let i = 0; i < args.length; i++) { 
+    try {
+      config =  JSON.parse(args[i])
+    } catch {
+      config = null
+    }
+    if (config == null){
+      BIN = args[i]
+    }
+  }
+  console.log(BIN)
+  console.log(config)
+  //  console.log("Parameters received:");
   // Iterate over the arguments and print each one
  // args.forEach((param, index) => {
    // console.log(`${index + 1}. ${param}`);
   //});
 
   // Define variables based on args
-  let config, BIN;
+/* 
   try {
     // Try to parse the arguments as JSON
-    config = JSON.parse(args.join(' '));
+    config = JSON.parse(args);
     console.log("Config:", config);
   } catch (error) {
     // If parsing fails, set BIN variable
     console.log(error)
     BIN = args.join(' ');
-    console.log("BIN:", BIN);
+   console.log("BIN:", BIN);
+*/
   }
 }
   
