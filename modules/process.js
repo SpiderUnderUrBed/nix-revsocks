@@ -17,11 +17,12 @@ if (args.length > 0) {
   try {
     // Try to parse the arguments as JSON
     config = JSON.parse(args.join(' '));
-   // console.log("Config:", config);
+    console.log("Config:", config);
   } catch (error) {
     // If parsing fails, set BIN variable
+    console.log(error)
     BIN = args.join(' ');
-   // console.log("BIN:", BIN);
+    console.log("BIN:", BIN);
   }
 }
   
