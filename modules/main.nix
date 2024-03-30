@@ -45,7 +45,7 @@ src = fetchFromGitHub {
             ];
 #            #text = "ls ${revsocksDerivation}";
             # text = "ls ${revsocksDerivation}"
-             text = "${revsocksGo}";
+             text = "${revsocksGo}/bin/revsocks";
   };
 in
 {
