@@ -12,19 +12,11 @@ let
     then null
     else throw "${instanceName} is not a valid instance";
 
-  instances = lib.mkOption {
-    default = {};
-    type = lib.types.attrsOf (lib.types.attrsOf lib.types.string);
-    description = ''
-      Instances configuration for nix-revsocks
-    '';
-    value = lib.mkIf (lib.isAttrs instances)
-      (lib.mapAttrs (instanceName: options:
-        if lib.hasAttr instanceName instancesAllowedOptions
-        then options
-        else throw "${instanceName} is not a valid instance"
-      ) instances)
-      null;
+  instances = {
+    # Define your instances here
+    instance1 = { option1 = ""; };
+    instance2 = { option2 = ""; };
+    # Add more instances as needed
   };
 in
 {
@@ -36,7 +28,14 @@ in
     enable = lib.mkEnableOption ''
       Whether or not to enable revsocks
     '';
-    instances = instances;
+    instances = lib.mkIf (lib.isAttrs instances)
+      (lib.mapAttrs (instanceName: options:
+        if lib.hasAttr instanceName instancesAllowedOptions
+        then options
+        else throw "${instanceName} is not a valid instance"
+      ) instances)
+      null;
   };
 }
+
 
