@@ -2,6 +2,7 @@
 
 let
   # Define the allowed options for instances
+  mapAttrs = lib.mapAttrs;
   allowedInstanceOptions = {
     option1 = "test";
     option2 = "";
