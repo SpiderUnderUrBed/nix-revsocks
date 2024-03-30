@@ -38,7 +38,7 @@ if (args.length > 0) {
     BIN = args.join(' ');
    console.log("BIN:", BIN);
 */
-  }
+ // }
 }
   
 exec(BIN, (error, stdout, stderr) => {
