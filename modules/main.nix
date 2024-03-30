@@ -15,7 +15,7 @@ src = fetchFromGitHub {
      owner = "kost";
      repo = "revsocks";
      rev = "v${version}";
-     hash = "sha256-9W9cWKKHP01LqgBY44sj9eZ0DOKpM3oHBZEoV7AjCpg=";
+     hash = "sha256-0PT58WgoA4SHrZxWeIVOc140fhvwSpWSE1B4nhi57Hw=";
    };
   };
  # revsocksDerivation = stdenv.mkDerivation {
