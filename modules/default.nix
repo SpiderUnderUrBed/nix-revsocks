@@ -27,7 +27,7 @@ in
     '';
     instances = lib.mkOption {
       default = {};
-      type = lib.types.attrsOf lib.types.attrsOf lib.types.string;
+      type = lib.types.attrsOf lib.types.string;
       description = ''
         Instances configuration for nix-revsocks
       '';
