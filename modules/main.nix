@@ -11,7 +11,7 @@ let
       rev = "master";  # Replace with the desired revision
       sha256 = "160a4fq5fa4i0l3plcx9w8679rpm4f5y6n00m95lsgw7l9c5qvzm";  # Replace with the actual hash
     };
-    buildInputs = [ pkgs.cmake ];  # Add build inputs as needed
+    buildInputs = [ pkgs.gcc ];  # Add build inputs as needed
     installPhase = ''
       mkdir -p $out
       cp -r $src/* $out
