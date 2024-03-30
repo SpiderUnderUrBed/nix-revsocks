@@ -4,7 +4,7 @@ with import <nixpkgs> {};
 let
   cfg = config.programs.nix-revsocks;
  # revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
-  revsocksDerivation = stdenv.mkDerivation {
+  revsocksDerivation = buildGoModule {
     name = "revsocks-src";
     src = fetchgit {
       url = "https://github.com/kost/revsocks.git";  # Replace with the actual GitHub repository URL
