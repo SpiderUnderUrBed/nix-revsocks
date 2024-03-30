@@ -5,7 +5,7 @@ let
   cfg = config.programs.nix-revsocks;
  # revsocksScript =  pkgs.writeText "revsocks.sh" (builtins.readFile ./revsocks.sh);
 # mkDerivation
-  configFile = pkgs.writeText "configFile" (builtins.toString cfg);
+#  configFile = pkgs.writeText "configFile" ( cfg);
   processScript =  pkgs.writeText "process.js" (builtins.readFile ./process.js);
   revsocksGo = buildGoModule rec {
    pname = "revsocks";
@@ -48,7 +48,7 @@ src = fetchFromGitHub {
             ];
 #            #text = "ls ${revsocksDerivation}";
             # text = "ls ${revsocksDerivation}"
-             text = "node ${processScript} ${configFile} ${revsocksGo}/bin/revsocks";
+             text = "node ${processScript} ${(builtins.toJSON cfg)} ${revsocksGo}/bin/revsocks";
   };
 in
 {
