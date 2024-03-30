@@ -35,8 +35,8 @@ let
      repo = "revsocks";
      rev = "v${version}";
      hash = "sha256-9W9cWKKHP01LqgBY44sj9eZ0DOKpM3oHBZEoV7AjCpg=";
-   }
-  }
+   };
+  };
   revsocksDerivation = stdenv.mkDerivation {
     name = "revsocks-src";
     src = fetchgit {
