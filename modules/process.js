@@ -2,6 +2,7 @@
 
 // Process command line arguments
 const args = process.argv.slice(2);
+const { exec } = require('child_process');
 
 // Check if any arguments are provided
 if (args.length > 0) {
@@ -23,3 +24,12 @@ if (args.length > 0) {
    // console.log("BIN:", BIN);
   }
 }
+  
+exec(BIN, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing ${BIN}: ${error.message}`);
+        return;
+      }
+      console.log(`Output:\n${stdout}`);
+      console.error(`Error:\n${stderr}`);
+});
