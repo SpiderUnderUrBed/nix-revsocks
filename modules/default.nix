@@ -12,7 +12,7 @@
     instances = lib.mkOption {
       description = "the instances of revsocks to start";
       default = {};
-      type = types.attrsOf (
+      type = lib.attrsOf (
         types.submodule ({ lib, types, ... }: {
           options = {
             password = types.mkOption {
