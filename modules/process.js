@@ -20,16 +20,16 @@ function isValidIPPortPair(ipPort) {
 function correctInstances(instances) {
     for (const instanceName in instances) {
         const instance = instances[instanceName];
-        if (!isValidIPPortPair(instance.connect)) {
+        if (!isValidIPPortPair(instance.connect) || instance.connect == "None") {
             console.error(`Error: Invalid connect address for instance "${instanceName}"`);
         }
-        if (!isValidIPPortPair(instance.proxy)) {
+        if (!isValidIPPortPair(instance.proxy) || instance.proxy == "None") {
             console.error(`Error: Invalid proxy address for instance "${instanceName}"`);
         }
-        if (!isValidIPPortPair(instance.listen)) {
+        if (!isValidIPPortPair(instance.listen) || instance.listen == "None") {
             console.error(`Error: Invalid listen address for instance "${instanceName}"`);
         }
-        if (!isValidIPPortPair(instance.socks)) {
+        if (!isValidIPPortPair(instance.socks) || instance.socks == "None") {
             console.error(`Error: Invalid socks address for instance "${instanceName}"`);
         }
     }
