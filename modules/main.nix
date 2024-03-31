@@ -13,7 +13,7 @@
       description = "the instances of revsocks to start";
       default = {};
       type = types.attrsOf (
-        types.submodule ({ ... }: {
+        types.submodule ({ lib, types, ... }: {
           options = {
             password = types.mkOption {
               description = "the password.";
