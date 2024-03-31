@@ -15,6 +15,11 @@
       type = with lib.types; attrsOf (
         types.submodule ({ lib, ... }: {
           options = {
+            type = lib.mkOption {
+              default = "None";
+              description = "The client or server";
+              type = types.str;
+            };
             password = lib.mkOption {
               default = "None";
               description = "the password.";
