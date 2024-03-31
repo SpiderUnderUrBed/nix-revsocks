@@ -16,22 +16,27 @@
         types.submodule ({ lib, ... }: {
           options = {
             password = lib.mkOption {
+              default = "None";
               description = "the password.";
               type = types.str;
             };
             proxy = lib.mkOption {
+              default = "None";
               description = "the proxy it may use.";
               type = types.str;
             };
-            socks = lib.mkOption {
+            socks = lib.mkOption { 
+              default = "None";
               description = "the place to host the socks proxy.";
               type = types.str;
             };
             listen = lib.mkOption {
+              default = "None";
               description = "the port to listen too.";
               type = types.str;
             };
             connect = lib.mkOption {
+               default = "None";
               description = "the connecting ip and port.";
               type = types.str;
             };
