@@ -3,6 +3,37 @@
 // Process command line arguments
 const args = process.argv.slice(2);
 const { exec } = require('child_process');
+const net = require('net');
+
+function isValidIPAddress(ip) {
+    return net.isIP(ip) !== 0;
+}
+function isValidPort(port) {
+    const portNum = parseInt(port);
+    return portNum >= 0 && portNum <= 65535;
+}
+function isValidIPPortPair(ipPort) {
+    const [ip, port] = ipPort.split(':');
+    return isValidIPAddress(ip) && isValidPort(port);
+}
+
+function correctInstances(instances) {
+    for (const instanceName in instances) {
+        const instance = instances[instanceName];
+        if (!isValidIPPortPair(instance.connect)) {
+            console.error(`Error: Invalid connect address for instance "${instanceName}"`);
+        }
+        if (!isValidIPPortPair(instance.proxy)) {
+            console.error(`Error: Invalid proxy address for instance "${instanceName}"`);
+        }
+        if (!isValidIPPortPair(instance.listen)) {
+            console.error(`Error: Invalid listen address for instance "${instanceName}"`);
+        }
+        if (!isValidIPPortPair(instance.socks)) {
+            console.error(`Error: Invalid socks address for instance "${instanceName}"`);
+        }
+    }
+}
 
 console.log(args)
 
@@ -41,6 +72,12 @@ if (args.length > 0) {
    console.log("BIN:", BIN);
 */
  // }
+}
+if (config) {
+    correctInstances(config.instances);
+}
+else {
+    console.error("Error: No valid JSON configuration provided");
 }
   
 exec(BIN, (error, stdout, stderr) => {
