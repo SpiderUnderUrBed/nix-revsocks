@@ -4,6 +4,8 @@
 const args = process.argv.slice(2);
 const { exec } = require('child_process');
 
+console.log(args)
+
 let config, BIN;
 //let BIN = null;
 // Check if any arguments are provided
