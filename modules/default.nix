@@ -1,4 +1,4 @@
-{ lib, types, ... }:
+{ lib, ... }:
 
 {
   imports = [
