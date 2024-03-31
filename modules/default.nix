@@ -27,7 +27,7 @@
               description = "the place to host the socks proxy.";
               type = types.str;
             };
-            listen = = lib.mkOption {
+            listen = lib.mkOption {
               description = "the port to listen too.";
               type = types.str;
             };
