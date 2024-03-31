@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./main.nix
+    #./main.nix
   ];
 
   options.programs.nix-revsocks = { 
