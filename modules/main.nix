@@ -33,7 +33,7 @@ instances = lib.mkOption {
               type = types.str;
             };
     };
-})
 };
+});
 };
 }
